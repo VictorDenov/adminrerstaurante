@@ -15,7 +15,7 @@
         }
     }
     
-    $q = mysqli_query($con,"select * from banquet_reserva_usuario");
+    $q = mysqli_query($conn,"select * from banquet_reserva_usuario");
     $today = date('Y-m-d');
     while($r = mysqli_fetch_array($q)){
         //$date = strtotime($r['Fecha_Reserva']);
@@ -24,7 +24,7 @@
             $count++;   
         }
     }
-    $q2 = mysqli_query($con,"select * from user_llevar where estado = 0");
+    $q2 = mysqli_query($conn,"select * from user_llevar where estado = 0");
     while($r1 = mysqli_fetch_array($q2)){
        $takeaway_date = date('Y-m-d',strtotime($r1['Fecha_Hora']));
        if(strcmp($today,$takeaway_date) == 0){
