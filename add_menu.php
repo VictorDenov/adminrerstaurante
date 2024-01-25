@@ -25,10 +25,10 @@
 			{
 				$query = "insert into menu (name,image,	description,priority, restaurant_show,ver_pedido,precio,tipo)
 						values('$name','','$desc',$priority,'$restaurant','$takeaway',$price,$tid)";
-				$exec = mysqli_query($con,$query);
+				$exec = mysqli_query($conn,$query);
 	
 				if(!($exec)){
-					echo myslqi_error($con);
+					echo myslqi_error($conn);
 				}
 				else{
 				    //header("location:view_menu.php");

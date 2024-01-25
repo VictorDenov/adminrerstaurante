@@ -11,7 +11,7 @@
            
             $q = mysqli_query($conn,"insert into categoria(name,img) values('$c','$folder')");
             if($q){
-                header("location:view_menu.php");
+                //header("location:view_menu.php");
             }
             else{
                 echo 'error';

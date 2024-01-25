@@ -12,7 +12,7 @@
                 
                     $price = $_POST['price'];
                     $desc = $_POST['description'];
-                    $query = "insert into banquet_menu(Booking_id,details,price,description) values($bbid,'$detail',$price,'$desc')";
+                    $query = "insert into banquet_menu(reserva_id,detalles,precio,description) values($bbid,'$detail',$price,'$desc')";
                     $q = mysqli_query($con,$query);
                     
                     if($q){
