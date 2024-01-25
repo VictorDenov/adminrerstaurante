@@ -1,7 +1,7 @@
 <?php 
         require 'db.php';
         if(isset($_POST['submit'])){
-            $c = $_POST['category'];
+            $c = $_POST['categoria'];
                 
            $n = $_POST['name'];
            $filename = $_FILES["image1"]["name"];
@@ -9,7 +9,7 @@
         
            $folder = "menu_img/".$filename;
            
-            $q = mysqli_query($con,"insert into categoria(Nombre,img) values('$c','$folder')");
+            $q = mysqli_query($con,"insert into categoria(name,img) values('$c','$folder')");
             if($q){
                 header("location:view_menu.php");
             }
