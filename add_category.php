@@ -9,7 +9,7 @@
         
            $folder = "menu_img/".$filename;
            
-            $q = mysqli_query($con,"insert into categoria(name,img) values('$c','$folder')");
+            $q = mysqli_query($conn,"insert into categoria(name,img) values('$c','$folder')");
             if($q){
                 header("location:view_menu.php");
             }
