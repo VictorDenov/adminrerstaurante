@@ -7,9 +7,9 @@
 		$desc = $_POST['description'];
 		$priority = $_POST['priority'];
 		$restaurant = $_POST['restaurant'];
-		$takeaway  = $_POST['takeaway'];
-		$type = $_POST['type'];
-		$price = $_POST['price'];
+		$pedido  = $_POST['pedido'];
+		$type = $_POST['tipo'];
+		$price = $_POST['precio'];
 
 		//$filename = $_FILES['img']['name'];
 		//$temp_file = $_FILES['img']['tmp_name'];
@@ -17,13 +17,13 @@
 		//$folder = "menu/".$filename;
 		//move_uploaded_file($temp_file,$folder);
 		
-		$cat_id = mysqli_query($con,"select cid from category where name='$type'");
+		$cat_id = mysqli_query($conn,"select cid from categoria where name='$type'");
 		$r5 = mysqli_fetch_array($cat_id);
 		$tid = $r5[0];
 		
-			if($name != '' && $price != '' && ($priority == 1 || $priority == 2 || $priority == 3 || $priority == 4 || $priority == 5 ) && ($takeaway == 'YES' || $takeaway == 'NO') && ($restaurant == 'YES' || $restaurant == 'NO') )
+			if($name != '' && $price != '' && ($priority == 1 || $priority == 2 || $priority == 3 || $priority == 4 || $priority == 5 ) && ($pedido == 'YES' || $pedido  == 'NO') && ($restaurant == 'YES' || $restaurant == 'NO') )
 			{
-				$query = "insert into menu (name,image,	description,priority, restaurant_show,takeaway_show,price,type)
+				$query = "insert into menu (name,image,	description,priority, restaurant_show,ver_pedido,precio,tipo)
 						values('$name','','$desc',$priority,'$restaurant','$takeaway',$price,$tid)";
 				$exec = mysqli_query($con,$query);
 	
@@ -85,27 +85,27 @@
    	     <nav class="nav nav-pills flex-column flex-sm-row">
   				<a class="flex-sm-fill text-sm-center nav-link active" href="view_menu.php">Back</a>
 		  </nav>
-		   <h2> Add New Plan</h2>
+		   <h2> Añadir nuevo plan</h2>
    		<form enctype="multipart/form-data" method="post" action="#">
 			<div class="form-group">
-				<label>Product Name</label>
-				<input type="text" class="form-control" id="exampleInputEmail1" name="name" placeholder="Product name" required />
+				<label>Nombre del producto</label>
+				<input type="text" class="form-control" id="exampleInputEmail1" name="name" placeholder="Nombre del producto" required />
 			</div>   
 			<div class="form-group">
-				<label>Price</label>
-				<input type="text" class="form-control" id="exampleInputEmail1" name="price" placeholder="Price" required />
+				<label>Precio</label>
+				<input type="text" class="form-control" id="exampleInputEmail1" name="precio" placeholder="Precio" required />
 			</div>
 			   
 			<div class="form-group">
-				<label>Description</label>
-				<input type="text" class="form-control" id="exampleInputEmail1" name="description" placeholder="Description" />
+				<label>Descripcion</label>
+				<input type="text" class="form-control" id="exampleInputEmail1" name="descripcion" placeholder="Descripcion" />
 			</div>
    			<div class="form-group">
-			    <select name = "type" class="custom-select d-block form-control" required>
+			    <select name = "tipo" class="custom-select d-block form-control" required>
     				<option disabled selected>Select Type/ Category </option>
     				<?php
     				    require 'db.php';
-    				    $cat = mysqli_query($con,"select * from category ");
+    				    $cat = mysqli_query($conn,"select * from categoria ");
     				    while($r = mysqli_fetch_array($cat)){
     				?>
     				<option> <?php echo $r['name']; ?> </option>
@@ -114,7 +114,7 @@
 			</div>
 			<div class="form-group">
 			    <select name = "priority" class="custom-select d-block form-control" required>
-    				<option disabled selected>Set Priority </option>
+    				<option disabled selected>Establecer prioridad </option>
     				<option> 1 </option>
     				<option> 2 </option>
     				<option> 3 </option>
@@ -124,19 +124,19 @@
 			</div>
 			<div class="form-group">
 			    <select name = "restaurant" class="custom-select d-block form-control" required>
-    				<option disabled selected>Set Visible to restaurant</option>
+    				<option disabled selected>Fijar Visible a restaurante</option>
     				<option> YES </option>
     				<option> NO </option>
     			</select> 	
 			</div>
 			<div class="form-group">
     			 <select name = "takeaway" class="custom-select d-block form-control" required>
-    				<option disabled selected>Set Visible to takeaway</option>
+    				<option disabled selected>Establecer Visible para llevar</option>
     				<option> YES </option>
     				<option> NO </option>
 			    </select>
 			</div>
-   			<button style="margin-left: 45%;" class="btn btn-primary" name="submit">Add Plan</button>
+   			<button style="margin-left: 45%;" class="btn btn-primary" name="submit">Agregar Plan</button>
    		</form>
    	</body>
 </html>

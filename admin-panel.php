@@ -1,6 +1,6 @@
 <?php
     session_start();
-    date_default_timezone_set('Asia/Kolkata');
+date_default_timezone_set('America/Guayaquil');
     require 'db.php';
     
     $count = 0;
@@ -15,18 +15,18 @@
         }
     }
     
-    $q = mysqli_query($conn,"select * from banquet_reserva_usuario");
+    $q = mysqli_query($conn,"select * usuario_reserva_banquetes");
     $today = date('Y-m-d');
     while($r = mysqli_fetch_array($q)){
         //$date = strtotime($r['Fecha_Reserva']);
-        $book_date = date('Y-m-d',strtotime($r['Fecha_Reserva']));
+        $book_date = date('Y-m-d',strtotime($r['fecha_reserva']));
         if(strcmp($today,$book_date) == 0){
             $count++;   
         }
     }
-    $q2 = mysqli_query($conn,"select * from user_llevar where estado = 0");
+    $q2 = mysqli_query($conn,"select * from pedido_user where status = 0");
     while($r1 = mysqli_fetch_array($q2)){
-       $takeaway_date = date('Y-m-d',strtotime($r1['Fecha_Hora']));
+       $takeaway_date = date('Y-m-d',strtotime($r1['date_time']));
        if(strcmp($today,$takeaway_date) == 0){
          $takeaway++;
        }
@@ -124,9 +124,9 @@ setTimeout("window.open(self.location, '_self');", 60000);
     else {
        $('.toast').toast('show');
      }
-     var takeaway = <?php echo $takeaway; ?>;
+     var pedido = <?php echo $pedido; ?>;
      
-     if(takeaway > 0){
+     if(pedido > 0){
          $('#toast').toast('show');
      }
      else{
