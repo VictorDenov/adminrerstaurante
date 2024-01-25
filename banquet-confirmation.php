@@ -13,7 +13,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" style="margin: 0;">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" style="margin: 0;">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" style="margin: 0;">
-    <title style="margin: 0;">Banquet Confirmation</title>
+    <title style="margin: 0;">Confirmacion Banquete</title>
 
     <!--[if gte mso 9]>
     <style>
