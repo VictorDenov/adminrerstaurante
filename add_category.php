@@ -3,7 +3,7 @@
         if(isset($_POST['submit'])){
             $c = $_POST['categoria'];
                 
-           $n = $_POST['Nombre'];
+           $n = $_POST['name'];
            $filename = $_FILES["image1"]["name"];
            $temp_file = $_FILES["image1"]["tmp_name"];
         
