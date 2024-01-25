@@ -11,7 +11,7 @@
 
         if($q){
             // Redirige a la página de visualización después de agregar la categoría
-            header("location: view_menu.php");
+            //header("location: view_menu.php");
             exit(); // Detén la ejecución del script después de redirigir
         } else {
             echo 'Error al agregar la categoría';
