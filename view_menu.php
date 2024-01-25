@@ -86,19 +86,19 @@
 
 				while($r = mysqli_fetch_array($exec))
 				{
-				    $id = $r['id_categoria'];
+				    $id = $r['cid'];
 				    $q2 = "select * from menu where tipo = $id ";
-				    $e = mysqli_query($con,$q2);
+				    $e = mysqli_query($conn,$q2);
 				    
 				  
 			?>
 			<tr>
 				<td><?php echo $i; $i++; ?></td>
 				<td><img src="<?php echo $r['img']; ?>"  height = "200" width="200" alt="Image Not Available"/></td>
-				<td><?php echo $r['Nombre']; ?></td>
+				<td><?php echo $r['name']; ?></td>
 				<td><?php     echo mysqli_num_rows($e);  ?></td>
-				<td><a href="view_menu_item.php?type=<?php echo $id; ?>">Ver</a></td>
-				<td><a href="update_category.php?type=<?php echo $id; ?>" >Actualizar</a></td>
+				<td><a href="view_menu_item.php?tipo=<?php echo $id; ?>">Ver</a></td>
+				<td><a href="update_category.php?tipo=<?php echo $id; ?>" >Actualizar</a></td>
 			</tr>
                 <?php
                     }
