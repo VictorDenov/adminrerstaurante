@@ -15,7 +15,7 @@ date_default_timezone_set('America/Guayaquil');
         }
     }
     
-    $q = mysqli_query($conn,"select * usuario_reserva_banquetes");
+    $q = mysqli_query($conn,"select *  from usuario_reserva_banquetes");
     $today = date('Y-m-d');
     while($r = mysqli_fetch_array($q)){
         //$date = strtotime($r['Fecha_Reserva']);
